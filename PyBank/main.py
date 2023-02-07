@@ -87,11 +87,11 @@ Greatest Decrease in Profits: Feb-14 ($-1825558)
 # Store each line of the analysis as a string in a list.
 lines = ["Financial Analysis",
          "----------------------------",
-         "Total Months: "+str(total_months),
+         f"Total Months: {total_months:.0f}",
          "Total: $"+str(net_total),
-         "Average Change: $"+str(total_change/total_months),
-         "Greatest Increase in Profits: "+str(increase_date)+" ($"+str(int(greatest_increase))+")",
-         "Greatest Decrease in Profits: "+str(decrease_date)+" ($"+str(int(greatest_decrease))+")"]
+         f"Average Change: $ {total_change/(total_months-1):.2f}",
+         f"Greatest Increase in Profits: {increase_date} (${greatest_increase:.0f})",
+         f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease:.0f})"]
 
 # Store the relative file path for the new analysis text file. 
 analysis_txt = os.path.join("analysis","financial_analysis.txt")
@@ -101,3 +101,5 @@ with open(analysis_txt,'w') as f:
         print(line)
         f.write(line)
         f.write('\n')
+
+# I know I didn't define any functions in this or for PyPoll, but I'm hoping that's okay.
